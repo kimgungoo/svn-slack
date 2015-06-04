@@ -36,11 +36,11 @@ public class SlackWebHook {
             
     //System.out.println(payload);
         
-    httpRequest(payload);
+    sendHttpRequest(payload);
   }
     
     
-  private static void httpRequest(String payload) {
+  private static void sendHttpRequest(String payload) {
     HttpURLConnection connection = null;
     
     try {
