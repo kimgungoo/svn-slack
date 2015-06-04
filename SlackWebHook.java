@@ -20,8 +20,8 @@ public class SlackWebHook {
     String changes = args[3];
       
     String title = "New commit by " + author;
-    String encLog = encodeLog(log);
     String subTitle = "Revision #" + revision +" (" + changes + " changed)";
+    String encLog = encodeLog(log);
         
     StringBuilder sb = new StringBuilder();
     sb.append("{\"text\": \"" + title + "\",");
