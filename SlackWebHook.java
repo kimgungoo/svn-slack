@@ -21,7 +21,7 @@ public class SlackWebHook {
       
     String title = "New commit by " + author;
     String subTitle = "Revision #" + revision +" (" + changes + " changed)";
-    String encLog = encodeLog(log);
+    String comment = encodeLog(log);
         
     StringBuilder sb = new StringBuilder();
     sb.append("{\"text\": \"" + title + "\",");
@@ -30,7 +30,7 @@ public class SlackWebHook {
     sb.append("\"attachments\": [{");
     sb.append("  \"fallback\": \"" + title + "\",");
     sb.append("  \"color\": \"#7CD197\",");
-    sb.append("  \"fields\": [{\"title\": \"" + subTitle + "\",\"value\": \"" + encLog + "\"}]}]}");
+    sb.append("  \"fields\": [{\"title\": \"" + subTitle + "\",\"value\": \"" + comment + "\"}]}]}");
         
     String payload = "payload=" + sb.toString();
             
