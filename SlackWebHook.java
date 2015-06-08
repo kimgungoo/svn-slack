@@ -37,7 +37,7 @@ public class SlackWebHook {
             
     //System.out.println(param);
         
-    sendHttpRequest(url, param);
+    sendHttpRequest(requestUrl, param);
   }
     
     
