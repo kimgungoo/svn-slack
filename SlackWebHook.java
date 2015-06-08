@@ -26,7 +26,6 @@ public class SlackWebHook {
     StringBuilder sb = new StringBuilder();
     sb.append("{\"text\": \"" + title + "\",");
     sb.append("\"username\": \"svn\",");
-    sb.append("\"icon_url\": \"http://i.imgur.com/2RqyaIS.png\",");
     sb.append("\"attachments\": [{");
     sb.append("  \"fallback\": \"" + title + "\",");
     sb.append("  \"color\": \"#7CD197\",");
