@@ -32,21 +32,21 @@ public class SlackWebHook {
     sb.append("  \"color\": \"#7CD197\",");
     sb.append("  \"fields\": [{\"title\": \"" + subTitle + "\",\"value\": \"" + comment + "\"}]}]}");
         
-    String payload = "payload=" + sb.toString();
+    String requestUrl = "https://" + orgName + ".slack.com/services/hooks/subversion?token=" + token;
+    String param = "payload=" + sb.toString();
             
-    //System.out.println(payload);
+    //System.out.println(param);
         
-    sendHttpRequest(payload);
+    sendHttpRequest(url, param);
   }
     
     
-  private static void sendHttpRequest(String payload) {
+  private static void sendHttpRequest(String requestUrl, String param) {
     HttpURLConnection connection = null;
     
     try {
       // Create connection
-      URL url = new URL("https://" + orgName 
-          + ".slack.com/services/hooks/subversion?token=" + token);
+      URL url = new URL(requestUrl);
       connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("POST");
       connection.setConnectTimeout(5000);
@@ -56,7 +56,7 @@ public class SlackWebHook {
 
       DataOutputStream wr = new DataOutputStream(
           connection.getOutputStream());
-      wr.writeBytes(payload);
+      wr.writeBytes(param);
       wr.flush();
       wr.close();
 
