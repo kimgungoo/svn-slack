@@ -44,7 +44,6 @@ public class SlackWebHook {
     HttpURLConnection connection = null;
     
     try {
-      // Create connection
       URL url = new URL(requestUrl);
       connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("POST");
